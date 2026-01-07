@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { AppLayout } from "@/components/layout/AppLayout";
-
 import Auth from "@/pages/Auth";
 import Home from "@/pages/Home";
 import Dashboard from "@/pages/Dashboard";
@@ -24,7 +23,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster position="top-right" />
-      <BrowserRouter>
+      <BrowserRouter basename="/controle">  {/* 👈 ADICIONE O BASENAME AQUI */}
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<Auth />} />
